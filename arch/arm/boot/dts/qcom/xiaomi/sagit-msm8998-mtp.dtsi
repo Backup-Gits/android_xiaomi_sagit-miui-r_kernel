@@ -1,5 +1,5 @@
 /* Copyright (c) 2016, The Linux Foundation. All rights reserved.
- * Copyright (C) 2018 XiaoMi, Inc.
+ * Copyright (C) 2019 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -419,10 +419,22 @@
 
 &pmi8998_haptics {
 	status = "okay";
+	qcom,vmax-mv = <3248>;
 	qcom,wave-play-rate-us = <5000>;
 	qcom,wave-shape = "sine";
-	qcom,vmax-mv = <2830>;
-	qcom,brake-pattern = <0x3 0x2 0x0 0x0>;
+	qcom,brake-pattern = [03 02 00 00];
+	qcom,disable_force_back_emf_delay;
+	qcom,vmax-overbrake-mv = <3596>;
+	qcom,brake-pattern-count = <9>;
+	qcom,brake-pattern-arry = [03 00 00 00
+	03 02 00 00
+	03 03 01 00
+	03 03 02 01
+	03 03 03 02
+	03 03 03 02
+	03 03 03 02
+	03 03 03 02
+	03 03 03 03];
 };
 
 &pm8998_vadc {
